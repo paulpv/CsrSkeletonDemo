@@ -18,12 +18,10 @@
 
 package com.csr.btsmartdemo;
 
-import java.util.UUID;
-
-import com.csr.btsmart.ScanResultsActivity;
-import com.csr.btsmart.BtSmartService.BtSmartUuid;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+
+import com.csr.btsmart.ScanResultsActivity;
 
 public class MainActivity extends ScanResultsActivity {
 
@@ -32,6 +30,13 @@ public class MainActivity extends ScanResultsActivity {
         Intent intent = new Intent(this, DemoActivity.class);
         intent.putExtra(BluetoothDevice.EXTRA_DEVICE, deviceToConnect);
         this.startActivity(intent);
-    }    
+    }
 
+    /*
+    @Override
+    protected UUID[] uuidFilter() {
+        UUID[] filter = { BtSmartService.BtSmartUuid.RSC_SERVICE.getUuid() };
+        return filter;
+    }
+    */
 }
