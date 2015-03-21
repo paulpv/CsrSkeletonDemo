@@ -23,10 +23,12 @@ import android.content.Intent;
 
 import com.csr.btsmart.ScanResultsActivity;
 
-public class MainActivity extends ScanResultsActivity {
-
+public class MainActivity
+        extends ScanResultsActivity
+{
     @Override
-    protected void connectBluetooth(BluetoothDevice deviceToConnect) {
+    protected void connectBluetooth(BluetoothDevice deviceToConnect)
+    {
         Intent intent = new Intent(this, DemoActivity.class);
         intent.putExtra(BluetoothDevice.EXTRA_DEVICE, deviceToConnect);
         this.startActivity(intent);

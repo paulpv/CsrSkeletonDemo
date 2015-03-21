@@ -18,32 +18,32 @@
 
 package com.csr.btsmartdemo;
 
-import java.io.UnsupportedEncodingException;
-import java.lang.ref.WeakReference;
-import java.util.UUID;
-import com.csr.btsmart.BtSmartService;
-import com.csr.btsmartdemo.R;
-import com.csr.view.DataView;
-
-import android.bluetooth.BluetoothGattCharacteristic;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.ParcelUuid;
 import android.app.Activity;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.ParcelUuid;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.csr.btsmart.BtSmartService;
+import com.csr.view.DataView;
+
+import java.io.UnsupportedEncodingException;
+import java.lang.ref.WeakReference;
+import java.util.UUID;
 
 public class DemoActivity extends Activity {
 
@@ -106,6 +106,11 @@ public class DemoActivity extends Activity {
         setContentView(R.layout.activity_demo);
 
         mStatusText = (TextView) findViewById(R.id.statusText);
+        distanceData = (DataView) findViewById(R.id.distanceData);
+        speedData = (DataView) findViewById(R.id.speedData);
+        cadenceData = (DataView) findViewById(R.id.cadenceData);
+        strideData = (DataView) findViewById(R.id.strideData);
+        locationData = (DataView) findViewById(R.id.locationData);
 
         // Get the device to connect to that was passed to us by the scan results Activity.
         Intent intent = getIntent();
@@ -134,7 +139,7 @@ public class DemoActivity extends Activity {
     {
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.running, menu);
+        inflater.inflate(R.menu.demo, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
