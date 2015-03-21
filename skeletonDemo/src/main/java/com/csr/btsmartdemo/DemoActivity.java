@@ -20,7 +20,6 @@ package com.csr.btsmartdemo;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -74,8 +73,8 @@ public class DemoActivity extends Activity {
 
     private static final int REQUEST_MANUFACTURER    = 0;
     private static final int REQUEST_BATTERY         = 1;
-    private static final int REQUEST_RSC_MEASUREMENT = 2;
-    private static final int REQUEST_LOCATION        = 3;
+    //private static final int REQUEST_RSC_MEASUREMENT = 2;
+    //private static final int REQUEST_LOCATION        = 3;
     private static final int REQUEST_HARDWARE_REV    = 4;
     private static final int REQUEST_FW_REV          = 5;
     private static final int REQUEST_SW_REV          = 6;
@@ -248,6 +247,7 @@ public class DemoActivity extends Activity {
                                 BtSmartService.BtSmartUuid.DEVICE_INFORMATION_SERVICE.getUuid(), BtSmartService.BtSmartUuid.SERIAL_NUMBER.getUuid(),
                                 parentActivity.mValueHandler);
 
+                        /*
                         // Get sensor location.
                         smartService.requestCharacteristicValue(REQUEST_LOCATION, BtSmartService.BtSmartUuid.RSC_SERVICE.getUuid(),
                                 BtSmartService.BtSmartUuid.SENSOR_LOCATION.getUuid(), parentActivity.mValueHandler);
@@ -256,6 +256,7 @@ public class DemoActivity extends Activity {
                         smartService.requestCharacteristicNotification(REQUEST_RSC_MEASUREMENT,
                                 BtSmartService.BtSmartUuid.RSC_SERVICE.getUuid(), BtSmartService.BtSmartUuid.RSC_MEASUREMENT.getUuid(),
                                 parentActivity.mValueHandler);
+                        */
 
                         // Register to be told about battery level.
                         smartService.requestCharacteristicNotification(REQUEST_BATTERY,
@@ -296,6 +297,7 @@ public class DemoActivity extends Activity {
                     // The request id tells us what failed.
                     int requestId = msg.getData().getInt(BtSmartService.EXTRA_CLIENT_REQUEST_ID);
 
+                    // TODO: React to failure.
                     /*
                     switch (requestId) {
                         case REQUEST_RSC_MEASUREMENT:
@@ -319,13 +321,17 @@ public class DemoActivity extends Activity {
                     UUID characteristicUuid =
                             ((ParcelUuid) msgExtra.getParcelable(BtSmartService.EXTRA_CHARACTERISTIC_UUID)).getUuid();
 
+                    // TODO: Do something with the value. The serviceUuid and
+                    // characteristicUuid tell you which characteristic the value belongs to.
+
+                    /*
                     // RSC notification.
                     if (serviceUuid.compareTo(BtSmartService.BtSmartUuid.RSC_SERVICE.getUuid()) == 0
                         && characteristicUuid.compareTo(BtSmartService.BtSmartUuid.RSC_MEASUREMENT.getUuid()) == 0) {
                         parentActivity.rscMeasurementHandler(msgExtra.getByteArray(BtSmartService.EXTRA_VALUE));
                     }
                     // Device information
-                    else if (serviceUuid.compareTo(BtSmartService.BtSmartUuid.DEVICE_INFORMATION_SERVICE.getUuid()) == 0) {
+                    else */ if (serviceUuid.compareTo(BtSmartService.BtSmartUuid.DEVICE_INFORMATION_SERVICE.getUuid()) == 0) {
                         String value;
                         try {
                             value = new String(msgExtra.getByteArray(BtSmartService.EXTRA_VALUE), "UTF-8");
@@ -348,23 +354,24 @@ public class DemoActivity extends Activity {
                         else if (characteristicUuid.compareTo(BtSmartService.BtSmartUuid.SERIAL_NUMBER.getUuid()) == 0) {
                             parentActivity.mSerialNo = value;
                         }
-
                     }
                     // Battery level notification.
                     else if (serviceUuid.compareTo(BtSmartService.BtSmartUuid.BATTERY_SERVICE.getUuid()) == 0
                              && characteristicUuid.compareTo(BtSmartService.BtSmartUuid.BATTERY_LEVEL.getUuid()) == 0) {
                         parentActivity.batteryNotificationHandler(msgExtra.getByteArray(BtSmartService.EXTRA_VALUE)[0]);
                     }
+                    /*
                     // Sensor location
                     else if (serviceUuid.compareTo(BtSmartService.BtSmartUuid.RSC_SERVICE.getUuid()) == 0
                              && characteristicUuid.compareTo(BtSmartService.BtSmartUuid.SENSOR_LOCATION.getUuid()) == 0) {
                         parentActivity.sensorLocationHandler(msgExtra.getByteArray(BtSmartService.EXTRA_VALUE)[0]);
                     }
+                    */
                     break;
                 }
             }
         }
-    };
+    }
 
     /**
      * Do something with the battery level received in a notification.
@@ -382,6 +389,7 @@ public class DemoActivity extends Activity {
      * @param locationIndex
      *            Index into the list of possible valid locations.
      */
+    /*
     private void sensorLocationHandler(int locationIndex) {
         final String[] locations =
                 { "Other", "Top of shoe", "In shoe", "Hip", "Front wheel", "Left crank", "Right crank", "Left pedal",
@@ -393,6 +401,7 @@ public class DemoActivity extends Activity {
         }
         locationData.setValueText(location);
     }
+    */
 
     /**
      * Calculate running speed and cadence values form data recieved in the characteristic notification and display in
@@ -401,6 +410,7 @@ public class DemoActivity extends Activity {
      * @param value
      *            Value received in the characteristic notification.
      */
+    /*
     private void rscMeasurementHandler(byte[] value) {
         final byte INDEX_FLAGS = 0;
         final byte INDEX_SPEED_VALUE = 1;
@@ -441,4 +451,5 @@ public class DemoActivity extends Activity {
                 (rscMeasurement.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT16, INDEX_SPEED_VALUE) & 0xffff) / 256;
         speedData.setValueText(String.valueOf(speed));
     }
+    */
 }
