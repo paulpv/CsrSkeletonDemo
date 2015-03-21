@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/pv/Development/GitHub/paulpv/SkeletonDemo/skeletonDemo/build/intermediates/exploded-aar/SkeletonDemo/btSmartLibrary/unspecified/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9ace5d36b7117a00da8d41280727df01c6860bbf">
+        <dex dex="/Users/pv/Development/GitHub/paulpv/SkeletonDemo/skeletonDemo/build/intermediates/pre-dexed/debug/classes-a925693ccddf2849b59da7128c3c332c47f47265.jar" />
+    </item>
+    <item
+        jar="/Users/pv/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="/Users/pv/Development/GitHub/paulpv/SkeletonDemo/skeletonDemo/build/intermediates/pre-dexed/debug/support-v4-18.0.0-eada56e54fc352bf037573c6625dd06f3aff9812.jar" />
+    </item>
+
+</items>

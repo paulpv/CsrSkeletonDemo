@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SkeletonDemo.iml" filepath="$PROJECT_DIR$/SkeletonDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/btSmartLibrary/btSmartLibrary.iml" filepath="$PROJECT_DIR$/btSmartLibrary/btSmartLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/skeletonDemo/skeletonDemo.iml" filepath="$PROJECT_DIR$/skeletonDemo/skeletonDemo.iml" />
+    </modules>
+  </component>
+</project>
+
