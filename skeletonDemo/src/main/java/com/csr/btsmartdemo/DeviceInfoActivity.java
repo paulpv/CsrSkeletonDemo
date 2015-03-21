@@ -35,14 +35,16 @@ public class DeviceInfoActivity
         final DataView serialNoData = (DataView) findViewById(R.id.serialNoData);
 
         Intent intent = getIntent();
-        batteryData.setValueText(intent.getExtras().getString(DemoActivity.EXTRA_BATTERY));
-        manufacturerData.setValueText(intent.getExtras().getString(DemoActivity.EXTRA_MANUFACTURER));
-        hwRevData.setValueText(intent.getExtras().getString(DemoActivity.EXTRA_HARDWARE_REV));
-        swRevData.setValueText(intent.getExtras().getString(DemoActivity.EXTRA_SW_REV));
-        fwRevData.setValueText(intent.getExtras().getString(DemoActivity.EXTRA_FW_REV));
-        serialNoData.setValueText(intent.getExtras().getString(DemoActivity.EXTRA_SERIAL));
+        Bundle extras = intent.getExtras();
+        batteryData.setValueText(extras.getString(DemoActivity.EXTRA_BATTERY));
+        manufacturerData.setValueText(extras.getString(DemoActivity.EXTRA_MANUFACTURER));
+        hwRevData.setValueText(extras.getString(DemoActivity.EXTRA_HARDWARE_REV));
+        swRevData.setValueText(extras.getString(DemoActivity.EXTRA_SW_REV));
+        fwRevData.setValueText(extras.getString(DemoActivity.EXTRA_FW_REV));
+        serialNoData.setValueText(extras.getString(DemoActivity.EXTRA_SERIAL));
     }
 
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -50,8 +52,9 @@ public class DeviceInfoActivity
         getMenuInflater().inflate(R.menu.menu_device_info, menu);
         return true;
     }
-    @Override
+    */
 
+    @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch (item.getItemId())
